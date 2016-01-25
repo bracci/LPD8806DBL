@@ -8,13 +8,13 @@
  #include <pins_arduino.h>
 #endif
 
-class LPD8806 {
+class LPD8806DBL {
 
  public:
 
-  LPD8806(uint16_t n, uint8_t dpin, uint8_t cpin); // Configurable pins
-  LPD8806(uint16_t n); // Use SPI hardware; specific pins only
-  LPD8806(void); // Empty constructor; init pins & strip length later
+  LPD8806DBL(uint16_t n, uint8_t dpin, uint8_t cpin); // Configurable pins
+  LPD8806DBL(uint16_t n); // Use SPI hardware; specific pins only
+  LPD8806DBL(void); // Empty constructor; init pins & strip length later
   void
     begin(void),
     setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b),
@@ -33,7 +33,7 @@ class LPD8806 {
 
   uint16_t
     numLEDs,    // Number of RGB LEDs in strip
-    numBytes;   // Size of 'pixels' buffer below
+    latchBytes; // Number of latch bytes
   uint8_t
     *pixels,    // Holds LED color values (3 bytes each) + latch bytes
     clkpin    , datapin;     // Clock & data pin numbers

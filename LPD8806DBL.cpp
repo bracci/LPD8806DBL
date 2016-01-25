@@ -250,9 +250,6 @@ void LPD8806DBL::show(void) {
   uint16_t i    = numLEDs;
   uint8_t  *p;
 
-  // This doesn't need to distinguish among individual pixel color
-  // bytes vs. latch data, etc.  Everything is laid out in one big
-  // flat buffer and issued the same regardless of purpose.
   if(hardwareSPI) {
     while(i--){
 		p = ptr;
